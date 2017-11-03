@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group">
-          <button type="button" class="btn btn-primary" name="button">Sign In</button>
+          <button type="submit" class="btn btn-primary" name="submit">Sign In</button>
         </div>
 
         @include('layouts.errors')

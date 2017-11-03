@@ -49,8 +49,8 @@
 
     <div class="blog-header">
       <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        <h1 class="blog-title">Sample Blog</h1>
+        <p class="lead blog-description">Sample blog develop in <a href="https://laravel.com" target="_blank">Laravel</a>.</p>
       </div>
     </div>
 
