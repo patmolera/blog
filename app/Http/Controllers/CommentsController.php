@@ -10,9 +10,14 @@ class CommentsController extends Controller
 {
     public function store(Post $post){
 
-      $this->validate(request(), ['body' => 'required|min:2']); 
+      $this->validate(request(), ['body' => 'required|min:2']);
       $post->addComment(request('body'));
 
+      // Comment::create([
+      //   'body' => request('body'),
+      //   'post_id =' => $post->id
+      // ]);
+      session()->flash('message', 'Comment Posted.');
       return back();
     }
 

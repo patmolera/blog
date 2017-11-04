@@ -3,6 +3,8 @@
 
 The body of your message.
 
+Welcome {{ $user->name }}
+
 @component('mail::button', ['url' => 'https://laracasts.com'])
 Let's GOOOOOOOOOOOOO.
 @endcomponent
