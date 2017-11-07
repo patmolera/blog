@@ -24,7 +24,7 @@ class SessionsController extends Controller
             'message' => 'Please check your credentials.'
           ]);
       }
-
+      
       return redirect()->home();
     }
 

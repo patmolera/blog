@@ -34,9 +34,9 @@
   <div class="sidebar-module">
     <h4>Elsewhere</h4>
     <ol class="list-unstyled">
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Facebook</a></li>
+      <li><a href="https://github.com" target="_blank">GitHub</a></li>
+      <li><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+      <li><a href="https://vuejs.org" target="_blank">Vue</a></li>
     </ol>
   </div>
 </div><!-- /.blog-sidebar -->
