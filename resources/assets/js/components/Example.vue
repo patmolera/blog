@@ -1,23 +1,32 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
-
-                    <div class="panel-body">
-                        I'm an example component!
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- <button @click="showToast('Hi')">Show Toast</button> -->
+        <toast-manager ref="toast"></toast-manager>
     </div>
 </template>
 
 <script>
     export default {
+        name: 'example',
+        methods: {
+            showToast(message) {
+                this.toast(message, {
+                    className: this.$refs.toast.styles.NORMAL_STYLE.SUCCESS,
+                    closable: false,
+                    timeout: 2000
+                })
+            },
+            toast(message, options) {
+                this.$refs.toast.showToast(message, options)
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+
+            this.$refs.toast.init({
+                max: 1,
+                position: this.$refs.toast.POSITION.BOTTOM_RIGHT
+            })
         }
     }
 </script>
