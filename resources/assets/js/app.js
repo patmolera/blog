@@ -1,3 +1,4 @@
+/* global Vue */
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -15,12 +16,12 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
- Vue.component('my-component', {
-  template:'<div>Hello</div>'
- })
+Vue.component('my-component', {
+    template: '<div>Hello</div>'
+})
 Vue.component('example', require('./components/Example.vue'));
 Vue.use(ToastPlugin);
 
-const app = new Vue({
+new Vue({
     el: '#app'
 });
