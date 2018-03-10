@@ -1,14 +1,22 @@
-<?php
+ <?php
+/**
+ * ClearDB MySQL for HEROKU ONLY
+ * ClearDB is a powerful, fault tolerant database-as-a-service in the cloud for your MySQL powered applications.
+ *
+ * To setup your ClearDB, you need to follow instructions in this link: https://devcenter.heroku.com/articles/cleardb#provisioning-the-add-on
+ * To retrieve your database url, run the following command and then copy the value of 'CLEARDB_DATABASE_URL' config variable
+ *
+ * heroku config | grep CLEARDB_DATABASE_URL
+ *
+ * To get the credentials in the database, you need to parse CLEARDB_DATABASE_URL.
+ * Please refer to this link for more info: https://devcenter.heroku.com/articles/cleardb#using-cleardb-with-php
+ */
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-$server = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$db = substr($url["path"], 1);
-
-$conn = new mysqli($server, $username, $password, $db);
+$host = isset($url["host"]) ? $url["host"] : 'localhost';
+$username = !empty($url["user"]) ? $url["user"] : 'root';
+$password = !empty($url["pass"]) ? $url["pass"] : '';
+$database = !empty($url["path"]) ? substr($url["path"], 1) : 'homestead';
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -19,9 +27,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
     'default' => env('DB_CONNECTION', 'mysql'),
-
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -37,22 +43,19 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
     'connections' => [
-
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'blogdb'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $username),
+            'password' => env('DB_PASSWORD', $password),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -60,7 +63,6 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -73,7 +75,6 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
@@ -84,9 +85,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
-
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Migration Repository Table
@@ -97,9 +96,7 @@ return [
     | the migrations on disk haven't actually been run in the database.
     |
     */
-
     'migrations' => 'migrations',
-
     /*
     |--------------------------------------------------------------------------
     | Redis Databases
@@ -110,18 +107,13 @@ return [
     | such as APC or Memcached. Laravel makes it easy to dig right in.
     |
     */
-
     'redis' => [
-
         'client' => 'predis',
-
         'default' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
         ],
-
     ],
-
 ];
