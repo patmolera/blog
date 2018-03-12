@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Album example for Bootstrap</title>
+    <title>Laravel Mini Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -51,8 +51,8 @@
 
       <div class="blog-header">
         <div class="container">
-          <h1 class="blog-title">Sample Blog</h1>
-          <p class="lead blog-description">Sample blog develop in <a href="https://laravel.com" target="_blank">Laravel</a>.</p>
+          <h1 class="blog-title">Laravel Mini Blog</h1>
+          <p class="lead blog-description">Mini blog develop in <a href="https://laravel.com" target="_blank">Laravel</a>.</p>
         </div>
       </div>
 
